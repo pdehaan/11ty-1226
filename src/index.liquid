@@ -2,9 +2,11 @@
 
 ---
 
-{% for p in collections.page %}
-<li>{{ p.date | date_format }} - {{ p.data.p.title }}</li>
-{% endfor %}
+<ul>
+{%- for p in collections.page %}
+  <li><a href="{{ p.url | url }}">{{ p.date | date_format }} - {{ p.data.p.title | default: p.data.title }}</a></li>
+{%- endfor %}
+</ul>
 
 <pre>
 {{ collections.page | inspect }}

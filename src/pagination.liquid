@@ -9,5 +9,5 @@ tags:
   - page
 ---
 
-<h1>{{ p.title }}</h1>
+<h1 data-slug="{{ page.url | url }}">{{ p.title }}</h1>
 <time datetime="{{ p.date }}">{{ p.date | date_format }}</time>

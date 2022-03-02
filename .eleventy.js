@@ -10,11 +10,13 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addCollection("page", function (collectionApi) {
+    // Get all pages with the tag "page".
     const p = collectionApi.getFilteredByTag("page");
     return p.sort((a, b) => {
-      console.log(a.data.date, a.data.p.date);
-      a.date = new Date(a.data.p.date);
-      b.date = new Date(b.data.p.date);
+      // `_.data.p.date` if it's via pagination, otherwise `_.date`.
+      a.date = a.data.p?.date ? new Date(a.data.p.date) : a.date;
+      b.date = b.data.p?.date ? new Date(b.data.p.date) : b.date;
+      // Return pages sorted by date, in descending order.
       return b.date - a.date;
     });
   });
