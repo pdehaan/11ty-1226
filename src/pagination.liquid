@@ -1,0 +1,13 @@
+---
+pagination:
+  data: pages
+  size: 1
+  alias: p
+  addAllPagesToCollections: true
+permalink: "{{ p.title | slugify }}/"
+tags:
+  - page
+---
+
+<h1>{{ p.title }}</h1>
+<time datetime="{{ p.date }}">{{ p.date | date_format }}</time>

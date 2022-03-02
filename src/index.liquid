@@ -1,0 +1,11 @@
+---
+
+---
+
+{% for p in collections.page %}
+<li>{{ p.date | date_format }} - {{ p.data.p.title }}</li>
+{% endfor %}
+
+<pre>
+{{ collections.page | inspect }}
+</pre>
